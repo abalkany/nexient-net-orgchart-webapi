@@ -19,7 +19,12 @@ namespace Orgchart
             );
 
             config.Routes.MapHttpRoute(
-                name: "WithIdsToDifferentiate",
+                name: "With2IdsToDifferentiate",
+                routeTemplate: "api/{controller}/{id1}/{id2}"
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "With3IdsToDifferentiate",
                 routeTemplate: "api/{controller}/{id1}/{id2}/{id3}"
             );
         }

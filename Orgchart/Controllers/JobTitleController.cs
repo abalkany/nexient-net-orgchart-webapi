@@ -43,14 +43,23 @@ namespace Orgchart.Controllers
                 uow.Commit();
 
                 var response = Request.CreateResponse(HttpStatusCode.Moved);
-                string uri = "http://" + Request.RequestUri.Authority + "/index.html";
+                string uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
                 response.Headers.Location = new Uri(uri);
                 return response;
             }
         }
 
         [HttpGet]
-        public HttpResponseMessage CreateJobTitle(int id1, int id2, int id3)
+        public HttpResponseMessage CreateJobTitle(int id1, int id2)
+        {
+                var response = Request.CreateResponse(HttpStatusCode.Moved);
+                string uri = "http://" + Request.RequestUri.Authority + "/Views/create.html";
+                response.Headers.Location = new Uri(uri);
+                return response;
+        }
+
+        [HttpGet]
+        public HttpResponseMessage CreateJobTitle(int id, int id2, int id3)
         {
             using (var uow = new UnitOfWork())
             {
@@ -58,12 +67,12 @@ namespace Orgchart.Controllers
 
                 var jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
                 jobTitleRepository.SetSession(uow.Session);
-                //jobTitleRepository.CreateJobTitle(id.ToString());
+                jobTitleRepository.CreateJobTitle(id.ToString());
 
                 uow.Commit();
 
                 var response = Request.CreateResponse(HttpStatusCode.Moved);
-                string uri = "http://" + Request.RequestUri.Authority + "/index.html";
+                string uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
                 response.Headers.Location = new Uri(uri);
                 return response;
             }
