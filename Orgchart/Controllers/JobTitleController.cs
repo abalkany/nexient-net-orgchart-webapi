@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using Nexient.Net.Orgchart.Data.Models;
 using Nexient.Net.Orgchart.Data.NHibernate;
@@ -25,7 +28,7 @@ namespace Orgchart.Controllers
         }
 
         [HttpGet]
-        public void DeleteJobTitle(int id)
+        public HttpResponseMessage DeleteJobTitle(int id)
         {
             using (var uow = new UnitOfWork())
             {
@@ -35,6 +38,11 @@ namespace Orgchart.Controllers
                 int ret = jobTitleRepository.DeleteJobTitle(id);
 
                 uow.Commit();
+
+                var response = Request.CreateResponse(HttpStatusCode.Moved);
+                string uri = "http://" + Request.RequestUri.Authority + "/index.html";
+                response.Headers.Location = new Uri(uri);
+                return response;
             }
         }
     }
