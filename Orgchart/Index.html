@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>This will contain job titles</title>
+</head>
+<body>
+<h2>Job Titles</h2>
+
+
+    <table id="JobTitleTable">
+        <p />
+        <tr><th>Job Title</th><th>Job Title ID</th></tr>
+    </table>
+    <br />
+    <a href="www.google.com">Create New Job Title</a>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+        <script>
+
+            function clickHandler(id) {
+                alert(id);
+
+                var request = $.ajax({
+                    url: "api/JobTitle/DeleteJobTitle",
+                    type: "post",
+                    data: serializedData
+                });
+
+                // Callback handler that will be called on success
+                request.done(function (response, textStatus, jqXHR) {
+                    // Log a message to the console
+                    alert("Hooray, it worked!");
+                });
+                //var xmlhttpp = new XMLHttpRequest();
+
+                ////DFW: xmlhttp.open("POST", "api/JobTitle/DeleteJobTitle", true);
+                //alert("It's open...");
+                ////DFW: xmlhttp.open("GET", "api/JobTitle/DeleteJobTitle?" + id, true);
+                //xmlhttp.send();
+                //alert("I'm baaack!");
+            }
+
+            var uri = 'api/JobTitle';
+
+            $(document).ready(function () {
+                $.getJSON(uri)
+                    .done(function (jobTitles) {
+                        $.each(jobTitles, function(key, item) {
+                                $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
+                                    "<td><a href='www.google.com'>Edit</a></td>" +
+                                    "<td><a href='api/JobTitle/" + item.JobTitleId + "'>Delete</a></td></tr>");
+                                
+
+
+                            //CALLS WRONG FUNCTION:
+                            //"<td><a href='api/JobTitle/DeleteJobTitle'>Delete</a></td></tr>");
+
+                            //CALLS WRONG FUNCTION:
+                            //"<td><a href='api/JobTitle/" + item.JobTitleId + "'>Delete</a></td></tr>");
+
+
+                            //NEVER CALLS GetAllJobTitles:
+                            //"<td><a href='api/JobTitle/DeleteJobTitle/666'>Delete</a></td></tr>");
+
+                            //NO LINK:
+                            // "<td><div onclick='DoPost(" + item.JobTitleId + ")'>Delete</></td></tr>");
+
+                            //DOESN'T PASS PARAMETER:
+                            //"<td><p onclick='clickHandler()'>Delete</p></td></tr>");
+
+
+                            //DFW:
+                            //"<td><p onclick='clickHandler(item.JobTitleId)'>Delete</p></td></tr>");
+                            //"<td><a href='api/JobTitle/DeleteJobTitle?" + item.JobTitleId + "'>Delete</a></td></tr>");
+
+                        })
+                            .fail(function () {
+                                alert("error");
+                            });
+                    });
+            });
+            function DoPost(id) {
+                $.post("api/JobTitle/DeleteJobTitle" + id);
+            }
+
+        </script>
+
+
+
+</body>
+</html>
