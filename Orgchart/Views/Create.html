@@ -6,10 +6,14 @@
 <body>
     <h2>Create New Job Title</h2>
 
-    Please enter job title:
-<form>
+<a href='/api/JobTitle/666/777/888'>Edit</a>
+
+Please enter job title:
+<form action="/api/JobTitle" method="GET">
     Description:
-    <input type="text" name="jobTitle">  <input type="button" value="Create"/>
+    <input type="text" name="jobTitle"> <input type="submit" value="Create"/>
+    <input type="hidden" name="dummy1">
+    <input type="hidden" name="dummy2">
     <a href="/Views/Index.html">Back to list</a>
 
 </form>

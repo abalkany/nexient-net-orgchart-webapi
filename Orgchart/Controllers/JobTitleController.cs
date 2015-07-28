@@ -29,7 +29,7 @@ namespace Orgchart.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpDelete]
         public HttpResponseMessage DeleteJobTitle(int id)
         {
             using (var uow = new UnitOfWork())
@@ -45,12 +45,13 @@ namespace Orgchart.Controllers
                 var response = Request.CreateResponse(HttpStatusCode.Moved);
                 string uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
                 response.Headers.Location = new Uri(uri);
+                response.StatusCode = HttpStatusCode.OK;
                 return response;
             }
         }
 
         [HttpGet]
-        public HttpResponseMessage CreateJobTitle(int id1, int id2)
+        public HttpResponseMessage CreateJobTitleShowForm(int id1, int id2)
         {
                 var response = Request.CreateResponse(HttpStatusCode.Moved);
                 string uri = "http://" + Request.RequestUri.Authority + "/Views/create.html";
@@ -58,8 +59,8 @@ namespace Orgchart.Controllers
                 return response;
         }
 
-        [HttpGet]
-        public HttpResponseMessage CreateJobTitle(int id, int id2, int id3)
+        [HttpPost]
+        public HttpResponseMessage CreateJobTitleDoCreate(int id, int id2, int id3)
         {
             using (var uow = new UnitOfWork())
             {
