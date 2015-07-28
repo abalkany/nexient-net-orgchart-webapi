@@ -60,7 +60,7 @@ namespace Orgchart.Controllers
         }
 
         [HttpPost]
-        public HttpResponseMessage CreateJobTitleDoCreate(int id, int id2, int id3)
+        public HttpResponseMessage CreateJobTitleDoCreate(string id)
         {
             using (var uow = new UnitOfWork())
             {
@@ -68,7 +68,7 @@ namespace Orgchart.Controllers
 
                 var jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
                 jobTitleRepository.SetSession(uow.Session);
-                jobTitleRepository.CreateJobTitle(id.ToString());
+                jobTitleRepository.CreateJobTitle(id);
 
                 uow.Commit();
 

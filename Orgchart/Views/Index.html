@@ -1,60 +1,51 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>This will contain job titles</title>
-</head>
-<body>
+    <title>Manage Job Titles</title>
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-<script>
+    <script>
+        var uri = '/api/JobTitle/';
 
-    function DeleteClicked(id) {
-        //alert("Delete clicked! Id = " + id);
-        $.ajax({
-            url: '/api/JobTitle/' + id,
-            type: 'DELETE',
-            success: function (result) {
-                //alert("Success!"
-                ShowJobTitles();
-            }
-        });
-       
-    }
-
-    function ShowJobTitles() {
-        $("#JobTitleTable tr").remove();
-        $.getJSON(uri)
-            .done(function (jobTitles) {
-                $.each(jobTitles, function (key, item) {
-                    $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
-                        "<td><a href='/api/JobTitle/EditJobTitle/" + item.JobTitleId + "'>Edit</a></td>" +
-                        "<td><a onclick=DeleteClicked(" + item.JobTitleId + ")>Delete</a></td></tr>");
-                    //"<td><a href='/api/JobTitle/" + item.JobTitleId + "'>Delete</a></td></tr>");
-                })
-                    .fail(function () {
-                        alert("error");
-                    });
+        function DeleteClicked(id) {
+            $.ajax({
+                url: uri + id,
+                type: 'DELETE',
+                success: function(result) {
+                    ShowJobTitles();
+                }
             });
 
-    }
-    var uri = '/api/JobTitle';
+        }
 
-    $(document).ready(function () {
-        ShowJobTitles();
-    });
+        function ShowJobTitles() {
+            $.getJSON(uri)
+                .done(function(jobTitles) {
+                    $("#JobTitleTable").find("tr:gt(0)").remove();
+                    $.each(jobTitles, function(key, item) {
+                            $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
+                                "<td><a href='/api/JobTitle/EditJobTitle/" + item.JobTitleId + "'>Edit</a></td>" +
+                                "<td><a onclick=DeleteClicked(" + item.JobTitleId + ")>Delete</a></td></tr>");
+                        })
+                        .fail(function() {
+                            alert("error");
+                        });
+                });
 
+        }
 
-</script>
+        $(document).ready(function() {
+            ShowJobTitles();
+        });
+    </script>
 
-<h2>Job Titles</h2>
-
+</head>
+<body>
+    <h2>Job Titles</h2>
 
     <table id="JobTitleTable">
         <tr><th>Job Title</th><th>Job Title ID</th></tr>
     </table>
     <br />
     <a href="/api/JobTitle/1/2">Create New Job Title</a>
-
-
-
 </body>
 </html>

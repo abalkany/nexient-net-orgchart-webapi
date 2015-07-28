@@ -2,22 +2,35 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Create New Job Title</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+    <script>
+        function CreateJobTitle() {
+            var element = document.getElementById('jobTitle');
+            var jobTitle = element.value;
+
+            $.ajax({
+                url: '/api/JobTitle/' + jobTitle,
+                type: 'POST',
+                success: function (result) {
+                    window.location.href = "index.html";
+                }
+            });
+        }
+
+    </script>
 </head>
 <body>
     <h2>Create New Job Title</h2>
 
-<a href='/api/JobTitle/666/777/888'>Edit</a>
 
 Please enter job title:
-<form action="/api/JobTitle" method="GET">
-    Description:
-    <input type="text" name="jobTitle"> <input type="submit" value="Create"/>
-    <input type="hidden" name="dummy1">
-    <input type="hidden" name="dummy2">
+    <p>
+Description: <input type="text" id="jobTitle"> <input type="button" value="Create" onclick="CreateJobTitle()">
+    <p>
     <a href="/Views/Index.html">Back to list</a>
 
-</form>
-
+    <br /><br />
     (c) 2015 - Nexient
 </body>
 </html>
