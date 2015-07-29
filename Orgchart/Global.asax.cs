@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Routing;
 using Nexient.Net.Orgchart.Data.Ninject;
 
-namespace Orgchart
+namespace Nexient.Net.Orgchart.WebAPI
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

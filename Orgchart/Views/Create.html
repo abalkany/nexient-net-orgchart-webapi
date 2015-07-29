@@ -6,19 +6,23 @@
 
     <script>
         function CreateJobTitle() {
+            $("body").css("cursor", "wait");
             var element = document.getElementById('jobTitle');
             var jobTitle = element.value;
+
+            alert(jobTitle);
 
             $.ajax({
                 url: '/api/JobTitle/' + jobTitle,
                 type: 'POST',
-                success: function (result) {
+                success: function(result) {
                     window.location.href = "index.html";
                 }
             });
+            $("body").css("cursor", "default");
         }
-
     </script>
+
 </head>
 <body>
     <h2>Create New Job Title</h2>

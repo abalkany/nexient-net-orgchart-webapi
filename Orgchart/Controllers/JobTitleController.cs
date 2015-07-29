@@ -1,28 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Nexient.Net.Orgchart.Data;
 using Nexient.Net.Orgchart.Data.Ninject;
 using Nexient.Net.Orgchart.Data.NHibernate;
-using Nexient.Net.Orgchart.Data.Repository;
 using Ninject;
 
-namespace Orgchart.Controllers
+namespace Nexient.Net.Orgchart.WebAPI.Controllers
 {
     public class JobTitleController : ApiController
     {
+        private IJobTitleRepository _jobTitleRepository;
+
+        public JobTitleController(IJobTitleRepository repository)
+        {
+            _jobTitleRepository = repository;
+        }
+
+        public JobTitleController()
+        {
+            _jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
+        }
+
         public IHttpActionResult GetJobTitles()
         {
             using (var uow = new UnitOfWork())
             {
                 uow.BeginTransaction();
-
-                var jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
-                var jobTitles = jobTitleRepository.GetAllJobTitles();
-
+                var jobTitles = _jobTitleRepository.GetAllJobTitles();
                 var ret = Json(jobTitles);
 
                 return ret;
@@ -36,13 +42,15 @@ namespace Orgchart.Controllers
             {
                 uow.BeginTransaction();
 
-                var jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
-                jobTitleRepository.SetSession(uow.Session);
-                int ret = jobTitleRepository.DeleteJobTitle(id);
+                _jobTitleRepository.SetSession(uow.Session);
+                var ret = _jobTitleRepository.DeleteJobTitle(id);
+
+                if (ret == 0)
+                    return new HttpResponseMessage(HttpStatusCode.NotFound);
 
                 uow.Commit();
 
-                var response = Request.CreateResponse(HttpStatusCode.Moved);
+                var response = Request.CreateResponse(HttpStatusCode.OK);
                 string uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
                 response.Headers.Location = new Uri(uri);
                 response.StatusCode = HttpStatusCode.OK;
@@ -66,17 +74,25 @@ namespace Orgchart.Controllers
             {
                 uow.BeginTransaction();
 
-                var jobTitleRepository = NinjectBag.Kernel.Get<IJobTitleRepository>();
-                jobTitleRepository.SetSession(uow.Session);
-                jobTitleRepository.CreateJobTitle(id);
+                _jobTitleRepository.SetSession(uow.Session);
+                _jobTitleRepository.CreateJobTitle(id);
 
                 uow.Commit();
 
                 var response = Request.CreateResponse(HttpStatusCode.Moved);
-                string uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
+                var uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
                 response.Headers.Location = new Uri(uri);
                 return response;
             }
+        }
+
+        [HttpPut]
+        public HttpResponseMessage UpdateJobTitleShowForm(int id)
+        {
+            var response = Request.CreateResponse(HttpStatusCode.Redirect);
+            var uri = "http://" + Request.RequestUri.Authority + "/Views/update.html";
+            response.Headers.Location = new Uri(uri);
+            return response;
         }
     }
 }

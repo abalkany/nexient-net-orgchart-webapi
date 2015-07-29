@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orgchart", "Orgchart\Orgchart.csproj", "{3C2C98E0-3AF4-4282-AACC-B7E92637ED35}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.WebAPI", "Orgchart\Nexient.Net.Orgchart.WebAPI.csproj", "{3C2C98E0-3AF4-4282-AACC-B7E92637ED35}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.Data", "nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj", "{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.WebAPI.Test", "Nexient.Net.Orgchart.Data.Test\Nexient.Net.Orgchart.WebAPI.Test.csproj", "{8BFBA21D-E3E0-4349-942C-854847CB6FE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFBA21D-E3E0-4349-942C-854847CB6FE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFBA21D-E3E0-4349-942C-854847CB6FE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFBA21D-E3E0-4349-942C-854847CB6FE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFBA21D-E3E0-4349-942C-854847CB6FE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
