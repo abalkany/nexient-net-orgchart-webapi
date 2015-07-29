@@ -29,6 +29,11 @@
             });
         }
 
+        function CreateJobTitleClicked() {
+            //alert("Create clicked.");
+            window.location = "/Views/Create.html";
+        }
+
         function ShowJobTitles() {
             $.getJSON(uri)
                 .done(function(jobTitles) {
@@ -58,6 +63,7 @@
         <tr><th>Job Title</th><th>Job Title ID</th></tr>
     </table>
     <br />
-    <a href="/api/JobTitle/1/2">Create New Job Title</a>
+<!--<a href="/api/JobTitle/1/2">Create New Job Title</a>-->
+    <input type="button" value="Create New Job Title" onclick="CreateJobTitleClicked()"/>
 </body>
 </html>

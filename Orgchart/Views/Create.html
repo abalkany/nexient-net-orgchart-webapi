@@ -10,13 +10,11 @@
             var element = document.getElementById('jobTitle');
             var jobTitle = element.value;
 
-            alert(jobTitle);
-
             $.ajax({
                 url: '/api/JobTitle/' + jobTitle,
-                type: 'POST',
+                type: 'PUT',
                 success: function(result) {
-                    window.location.href = "index.html";
+                    window.location = "/Views/index.html";
                 }
             });
             $("body").css("cursor", "default");

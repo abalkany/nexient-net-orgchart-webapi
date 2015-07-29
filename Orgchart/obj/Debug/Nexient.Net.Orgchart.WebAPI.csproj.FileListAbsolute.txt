@@ -1,3 +1,6 @@
+C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.dll.config
+C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.pdb
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\FluentNHibernate.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Iesi.Collections.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Newtonsoft.Json.dll
@@ -21,8 +24,5 @@ C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\System.Web.Http.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\System.Web.Http.WebHost.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Ninject.Web.Common.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\obj\Debug\Nexient.Net.Orgchart.WebAPI.csprojResolveAssemblyReference.cache
-C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.dll.config
-C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.dll
-C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\bin\Nexient.Net.Orgchart.WebAPI.pdb
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\obj\Debug\Nexient.Net.Orgchart.WebAPI.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Orgchart\obj\Debug\Nexient.Net.Orgchart.WebAPI.pdb

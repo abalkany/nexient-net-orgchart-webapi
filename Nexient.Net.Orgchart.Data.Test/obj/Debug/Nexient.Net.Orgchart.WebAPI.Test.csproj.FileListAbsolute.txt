@@ -1,13 +1,11 @@
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.Test.dll.config
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.Test.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.Test.pdb
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\nunit.framework.dll
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\nunit.framework.xml
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.WebAPI.Test.csprojResolveAssemblyReference.cache
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.Data.Test.dll
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.Data.Test.pdb
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.Test.dll.config
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Moq.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Newtonsoft.Json.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.WebAPI.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\nunit.framework.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\FluentNHibernate.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Ninject.Web.Common.dll
@@ -18,7 +16,10 @@ C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.WebHost.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Iesi.Collections.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.pdb
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.WebAPI.pdb
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Moq.xml
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Newtonsoft.Json.xml
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\nunit.framework.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\FluentNHibernate.pdb
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\FluentNHibernate.xml
@@ -28,5 +29,6 @@ C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Net.Http.Formatting.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.WebHost.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Iesi.Collections.xml
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.WebAPI.dll
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.WebAPI.pdb
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.WebAPI.Test.csprojResolveAssemblyReference.cache
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.Data.Test.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.Data.Test.pdb
