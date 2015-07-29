@@ -50,22 +50,14 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
 
                 uow.Commit();
 
-                var response = Request.CreateResponse(HttpStatusCode.OK);
-                var uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
+                var response = new HttpResponseMessage();
+                var uri = "http://Views/index.html";
                 response.Headers.Location = new Uri(uri);
                 response.StatusCode = HttpStatusCode.OK;
+
                 return response;
             }
         }
-
-        //[HttpGet]
-        //public HttpResponseMessage CreateJobTitleShowForm(int id1, int id2)
-        //{
-        //        var response = Request.CreateResponse(HttpStatusCode.Moved);
-        //        var uri = "http://" + Request.RequestUri.Authority + "/Views/create.html";
-        //        response.Headers.Location = new Uri(uri);
-        //        return response;
-        //}
 
         [HttpPut]
         public HttpResponseMessage CreateJobTitle(string id)
@@ -79,18 +71,20 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
 
                 uow.Commit();
 
-                var response = Request.CreateResponse(HttpStatusCode.OK);
-                var uri = "http://" + Request.RequestUri.Authority + "/Views/index.html";
+                var response = new HttpResponseMessage();
+                var uri = "http://Views/index.html";
                 response.Headers.Location = new Uri(uri);
+                response.StatusCode = HttpStatusCode.OK;
+
                 return response;
             }
         }
 
         [HttpPost]
-        public HttpResponseMessage UpdateJobTitleShowForm(int id)
+        public HttpResponseMessage UpdateJobTitle(string oldDescription, string newDescription)
         {
             var response = Request.CreateResponse(HttpStatusCode.Redirect);
-            var uri = "http://" + Request.RequestUri.Authority + "/Views/update.html";
+            var uri = "http://Views/update.html";
             response.Headers.Location = new Uri(uri);
             return response;
         }

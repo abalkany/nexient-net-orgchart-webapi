@@ -12,12 +12,13 @@ using Nexient.Net.Orgchart.Data.Ninject;
 namespace Nexient.Net.Orgchart.Data.Test
 {
     [TestFixture]
-    class JobTitleControllerTests
+    public class JobTitleControllerTests
     {
         private JobTitleController _sut;
         private Mock<IJobTitleRepository> _repository;
         private int _jobTitleId = 111;
         private string _jobTitleDescription = "a-description";
+        private string _jobTitleDescription2 = "another-description";
 
         [SetUp]
         public void Setup()
@@ -46,6 +47,13 @@ namespace Nexient.Net.Orgchart.Data.Test
         {
             _sut.CreateJobTitle(_jobTitleDescription);
             _repository.Verify(_ => _.CreateJobTitle(_jobTitleDescription));
+        }
+
+        [Test]
+        public void UpdateJobTitleCallsUpdateJobTitleInRepository()
+        {
+            _sut.UpdateJobTitle(_jobTitleDescription, _jobTitleDescription2);
+            _repository.Verify(_ => _.UpdateJobTitle(_jobTitleDescription, _jobTitleDescription2));
         }
     }
 }
