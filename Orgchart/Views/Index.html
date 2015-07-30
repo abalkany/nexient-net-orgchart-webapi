@@ -17,20 +17,11 @@
             });
         }
 
-        function EditClicked(id) {
-            alert("edit clicked.");
-            $("body").css("cursor", "wait");
-            $.ajax({
-                url: uri + id,
-                type: 'PUT',
-                success: function (result) {
-                    ShowJobTitles();
-                }
-            });
+        function EditClicked(oldDescription) {
+            window.location = "/Views/Update.html?id=" + oldDescription;
         }
 
         function CreateJobTitleClicked() {
-            //alert("Create clicked.");
             window.location = "/Views/Create.html";
         }
 
@@ -40,7 +31,7 @@
                     $("#JobTitleTable").find("tr:gt(0)").remove();
                     $.each(jobTitles, function(key, item) {
                             $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
-                                "<td><a onclick=EditClicked(" + item.JobTitleId + ")>Edit</a></td>" +
+                                "<td><a onclick=EditClicked(" + "\"" + item.Description + "\"" + ")>Edit</a></td>" +
                                 "<td><a onclick=DeleteClicked(" + item.JobTitleId + ")>Delete</a></td></tr>");
                         })
                         .fail(function() {

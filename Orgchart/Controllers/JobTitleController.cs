@@ -80,13 +80,51 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
             }
         }
 
+        [HttpGet]
+        public HttpResponseMessage GetJobTitleFromId(int id)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
+
+                _jobTitleRepository.SetSession(uow.Session);
+                var jobTitle = _jobTitleRepository.GetJobTitleFromId(id);
+
+                var response = new HttpResponseMessage();
+                var uri = "http://Views/index.html";
+                response.Headers.Location = new Uri(uri);
+
+                if (jobTitle == null)
+                    response.StatusCode = HttpStatusCode.BadRequest;
+                else
+                {
+                    response.Headers.Add("JobTitle", jobTitle.Description);
+                    response.StatusCode = HttpStatusCode.OK;
+                }
+
+                return response;
+            }
+        }
+
         [HttpPost]
         public HttpResponseMessage UpdateJobTitle(string oldDescription, string newDescription)
         {
-            var response = Request.CreateResponse(HttpStatusCode.Redirect);
-            var uri = "http://Views/update.html";
-            response.Headers.Location = new Uri(uri);
-            return response;
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
+
+                _jobTitleRepository.SetSession(uow.Session);
+                var ok = _jobTitleRepository.UpdateJobTitle(oldDescription, newDescription);
+
+                uow.Commit();
+
+                var response = new HttpResponseMessage();
+                var uri = "http://Views/index.html";
+                response.Headers.Location = new Uri(uri);
+                response.StatusCode = (ok) ? HttpStatusCode.OK : HttpStatusCode.BadRequest;
+
+                return response;
+            }
         }
     }
 }

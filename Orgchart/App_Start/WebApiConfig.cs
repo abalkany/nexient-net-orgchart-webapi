@@ -19,15 +19,10 @@ namespace Nexient.Net.Orgchart.WebAPI
             );
 
             config.Routes.MapHttpRoute(
-                name: "With2IdsToDifferentiate",
-                routeTemplate: "api/{controller}/{id1}/{id2}"
-            );
-
-            //config.Routes.MapHttpRoute(
-            //    name: "WithAction",
-            //    routeTemplate: "api/{controller}/{action}/{id1}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+                name: "With2Ids",
+                routeTemplate: "api/{controller}/{oldDescription}/{newDescription}",
+                defaults: new { oldDescription = RouteParameter.Optional, newDescription = RouteParameter.Optional  }
+            ); 
         }
     }
 }

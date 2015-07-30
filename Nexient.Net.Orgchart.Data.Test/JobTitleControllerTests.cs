@@ -53,7 +53,15 @@ namespace Nexient.Net.Orgchart.Data.Test
         public void UpdateJobTitleCallsUpdateJobTitleInRepository()
         {
             _sut.UpdateJobTitle(_jobTitleDescription, _jobTitleDescription2);
+            _sut.UpdateJobTitle(_jobTitleDescription, _jobTitleDescription2);
             _repository.Verify(_ => _.UpdateJobTitle(_jobTitleDescription, _jobTitleDescription2));
+        }
+
+        [Test]
+        public void GetJobTitleFromIdCallsGetJobTitleFromIdInRepository()
+        {
+            _sut.GetJobTitleFromId(_jobTitleId);
+            _repository.Verify(_ => _.GetJobTitleFromId(_jobTitleId));
         }
     }
 }

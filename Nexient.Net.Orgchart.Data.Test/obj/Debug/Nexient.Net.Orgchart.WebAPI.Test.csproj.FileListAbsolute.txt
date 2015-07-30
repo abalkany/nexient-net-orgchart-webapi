@@ -12,8 +12,8 @@ C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Ninject.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\NHibernate.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\WebActivatorEx.dll
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Net.Http.Formatting.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.WebHost.dll
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Net.Http.Formatting.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Iesi.Collections.dll
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.Data.pdb
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Nexient.Net.Orgchart.WebAPI.pdb
@@ -26,8 +26,8 @@ C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Ninject.Web.Common.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Ninject.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\NHibernate.xml
-C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Net.Http.Formatting.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Web.Http.WebHost.xml
+C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\System.Net.Http.Formatting.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\bin\Debug\Iesi.Collections.xml
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.WebAPI.Test.csprojResolveAssemblyReference.cache
 C:\OrgChart\nexient-net-orgchart-webAPI\Nexient.Net.Orgchart.Data.Test\obj\Debug\Nexient.Net.Orgchart.Data.Test.dll
