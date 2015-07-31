@@ -10,9 +10,10 @@ namespace Nexient.Net.Orgchart.Data.Test
     {
         private DepartmentController _sut;
         private Mock<IDepartmentRepository> _repository;
-        private int _departmentId = 111;
-        private string _jobTitleDescription = "a-description";
-        private string _jobTitleDescription2 = "another-description";
+        private string _departmentName = "a department name";
+        private int _departmentId = 111111;
+        private int _managerId = 222222;
+        private int _parentDepartmentId = 333;
 
         [SetUp]
         public void Setup()
@@ -20,6 +21,13 @@ namespace Nexient.Net.Orgchart.Data.Test
             NinjectBag.InitializeNinject();
             _repository = new Mock<IDepartmentRepository>();
             _sut = new DepartmentController(_repository.Object);
+        }
+
+        [Test]
+        public void CreateDepartmentCallsCreateDepartmentInRepository()
+        {
+            _sut.CreateDepartment(_departmentName, _managerId, _parentDepartmentId);
+            _repository.Verify(_ => _.CreateDepartment(_departmentName));
         }
 
         [Test]

@@ -22,7 +22,12 @@ namespace Nexient.Net.Orgchart.WebAPI
                 name: "With2Ids",
                 routeTemplate: "api/{controller}/{oldDescription}/{newDescription}",
                 defaults: new { oldDescription = RouteParameter.Optional, newDescription = RouteParameter.Optional  }
-            ); 
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "With3Ids",
+                routeTemplate: "api/{controller}/{name}/{managerId}/{parentDepartmentId}"
+            );
         }
     }
 }

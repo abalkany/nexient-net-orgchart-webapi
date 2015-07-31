@@ -2,25 +2,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Create Department</title>
+    <link rel="stylesheet" href="~/Content/styles.css">
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        function CreateDepartment() {
+            $("body").css("cursor", "wait");
+            var managerId = $("#managerId").val();
+            var name = $("#name").val();
+            var parentDepartmentId = $("#parentDepartmentId").val();
+
+            $.ajax({
+                url: '/api/Department/' + name + "/" + managerId + "/" + parentDepartmentId,
+                type: 'POST',
+                success: function (result) {
+                    window.location = "/Views/Department/Department.html";
+                }
+            });
+            $("body").css("cursor", "default");
+        }
+
+        $('.td').css('h2');
+    </script>
 </head>
 <body>
-    <div class="container">
-        <h2>Create Department</h2>
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <label class="control-label col-sm-2 text-align: right" for="managerId">Manager ID:</label>
-            <input type="text" class="form-control" id="managerId" placeholder="Enter Manager ID">
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2 text-align: right" for="name" text-align right>Name:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter Name">
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="parentDepartmentId">Parent Department ID:</label>
-                <input type="text" class="form-control" id="parentDepartmentId" placeholder="Enter Parent Department ID">
-        </div>
-    </form>
-    </div>
+<div class="container">
+    <h2>Create Department</h2>
+    <table>
+        <tr>
+            <td align="right"><label class="control-label col-md-2" for="name" text-align right>Name:</label> </td>
+            <td><input type="text" class="form-control col-md-10" id="name" placeholder="Enter Name"></td>       
+        <tr>
+            <td align="right"><label class="control-label col-sm-3 text-align: right" for="managerId">Manager ID:</label></td>
+            <td><input type="text" class="form-control" id="managerId" placeholder="Enter Manager ID"></td>
+        </tr>
+        <tr>
+            <td align="right"><label class="control-label col-sm-3" for="parentDepartmentId">Parent Department ID:</label></td>
+            <td><input type="text" class="form-control" id="parentDepartmentId" placeholder="Enter Parent Department ID"></td>
+        </tr>
+</table>
+</div>
+    <br /><br />
+   <input type="button" value="Create Department" onclick="CreateDepartment()">
+    <br /><br />
+    <a href="/Views/Department/Department.html">Back to Departments</a>
+    <br /><br />
+    <a href="/Views/Index.html">Back to main page</a>
 
 </body>
 </html>

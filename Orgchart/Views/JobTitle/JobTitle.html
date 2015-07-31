@@ -13,6 +13,10 @@
     <script>
         var uri = '/api/JobTitle/';
 
+        $(document).ready(function () {
+            ShowJobTitles();
+        });
+
         function DeleteClicked(id) {
             $("body").css("cursor", "wait");
             $.ajax({
@@ -47,10 +51,6 @@
                 });
             $("body").css("cursor", "default");
         }
-
-        $(document).ready(function() {
-            ShowJobTitles();
-        });
     </script>
 
 </head>
@@ -61,6 +61,8 @@
         <tr><th>Job Title</th><th>Job Title ID</th></tr>
     </table>
     <br />
-    <input type="button" value="Create New Job Title" onclick="CreateJobTitleClicked()"/>
+<input type="button" value="Create New Job Title" onclick="CreateJobTitleClicked()"/>
+    <br /><br />
+    <a href="/Views/Index.html">Back to main page</a>
 </body>
 </html>
