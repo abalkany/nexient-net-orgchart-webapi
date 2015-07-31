@@ -89,10 +89,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jumbotron.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Views\Create.html" />
-    <Content Include="Views\Update.html" />
+    <Content Include="Views\Department\CreateDepartment.html" />
+    <Content Include="Views\Department\Department.html" />
+    <Content Include="Views\JobTitle\CreateJobTitle.html" />
     <Content Include="Views\Index.html" />
+    <Content Include="Views\JobTitle\JobTitle.html" />
+    <Content Include="Views\JobTitle\UpdateJobTitle.html" />
+    <Content Include="Views\styles.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

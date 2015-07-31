@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Manage Job Titles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+    <!--<link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/Site.css">-->
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = '/api/JobTitle/';
+
+        function DeleteClicked(id) {
+            $("body").css("cursor", "wait");
+            $.ajax({
+                url: uri + id,
+                type: 'DELETE',
+                success: function(result) {
+                    ShowJobTitles();
+                }
+            });
+        }
+
+        function EditClicked(oldDescription) {
+            window.location = "/Views/JobTitle/UpdateJobTitle.html?id=" + oldDescription;
+        }
+
+        function CreateJobTitleClicked() {
+            window.location = "/Views/JobTitle/CreateJobTitle.html";
+        }
+
+        function ShowJobTitles() {
+            $.getJSON(uri)
+                .done(function(jobTitles) {
+                    $("#JobTitleTable").find("tr:gt(0)").remove();
+                    $.each(jobTitles, function(key, item) {
+                            $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
+                                "<td><a onclick=EditClicked(" + "\"" + item.Description + "\"" + ")>Edit</a></td>" +
+                                "<td><a onclick=DeleteClicked(" + item.JobTitleId + ")>Delete</a></td></tr>");
+                        })
+                        .fail(function() {
+                            alert("error");
+                        });
+                });
+            $("body").css("cursor", "default");
+        }
+
+        $(document).ready(function() {
+            ShowJobTitles();
+        });
+    </script>
+
+</head>
+<body>
+    <h2>Job Titles</h2>
+
+    <table id="JobTitleTable" class="table table-striped table-bordered">
+        <tr><th>Job Title</th><th>Job Title ID</th></tr>
+    </table>
+    <br />
+    <input type="button" value="Create New Job Title" onclick="CreateJobTitleClicked()"/>
+</body>
+</html>

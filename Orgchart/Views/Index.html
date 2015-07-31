@@ -1,60 +1,31 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Manage Job Titles</title>
-    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
-    <script>
-        var uri = '/api/JobTitle/';
-
-        function DeleteClicked(id) {
-            $("body").css("cursor", "wait");
-            $.ajax({
-                url: uri + id,
-                type: 'DELETE',
-                success: function(result) {
-                    ShowJobTitles();
-                }
-            });
-        }
-
-        function EditClicked(oldDescription) {
-            window.location = "/Views/Update.html?id=" + oldDescription;
-        }
-
-        function CreateJobTitleClicked() {
-            window.location = "/Views/Create.html";
-        }
-
-        function ShowJobTitles() {
-            $.getJSON(uri)
-                .done(function(jobTitles) {
-                    $("#JobTitleTable").find("tr:gt(0)").remove();
-                    $.each(jobTitles, function(key, item) {
-                            $("#JobTitleTable").append("<tr><td>" + item.Description + "</td><td>" + item.JobTitleId + "</td>" +
-                                "<td><a onclick=EditClicked(" + "\"" + item.Description + "\"" + ")>Edit</a></td>" +
-                                "<td><a onclick=DeleteClicked(" + item.JobTitleId + ")>Delete</a></td></tr>");
-                        })
-                        .fail(function() {
-                            alert("error");
-                        });
-                });
-            $("body").css("cursor", "default");
-        }
-
-        $(document).ready(function() {
-            ShowJobTitles();
-        });
-    </script>
-
+    <title>Orgchart Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/jumbotron.css" rel="stylesheet">
 </head>
 <body>
-    <h2>Job Titles</h2>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Nexient Orgchart Project</h1>
+            <p>Now with webAPI!</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a>
+            </p>
+        </div>
+    </div>
 
-    <table id="JobTitleTable">
-        <tr><th>Job Title</th><th>Job Title ID</th></tr>
-    </table>
-    <br />
-<!--<a href="/api/JobTitle/1/2">Create New Job Title</a>-->
-    <input type="button" value="Create New Job Title" onclick="CreateJobTitleClicked()"/>
+<h1>Entities</h1><br />
+<h2>
+    <a href="JobTitle/JobTitle.html">JobTitle</a><br />
+    <a href="Department/Department.html">Department</a><br />
+    <a href="Employee/Employee.html">Employee</a><br />
+    <a href="Sample/Sample.html">Sample</a><br />
+</h2>
+
 </body>
 </html>
