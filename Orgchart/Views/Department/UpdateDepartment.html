@@ -15,7 +15,7 @@
                 url: updateUrl,
                 type: 'POST',
                 success: function (result) {
-                    window.location = "/Views/JobTitle/JobTitle.html";
+                    window.location = "/Views/Department/Department.html";
                 }
             });
         }
@@ -33,7 +33,6 @@
             SetManagerList();
             SetDepartmentList();
             $("#departmentIdReadOnly").text(departmentId);
-            SetInitialSelections();
         }
 
         function ExtractIdAndName(pars)
@@ -62,15 +61,17 @@
                     $.each(departments, function (key, item) {
                         AddToDropDownList('parentDepartmentIdDropDown', item.DepartmentId);
                     })
+                    SetInitialSelections();
                 });
         }
 
         function SetInitialSelections() {
             $.ajax({
-                url: departmentUri + "/" + Depar,
+                url: departmentUri + "/" + departmentId,
                 type: 'GET',
                 success: function (result) {
-                    window.location = "/Views/JobTitle/JobTitle.html";
+                    managerIdDropDown.value = result.ManagerId;
+                    parentDepartmentIdDropDown.value = result.ParentDepartmentId;
                 }
             });
         }
@@ -83,15 +84,23 @@
             x.add(option, x[0]);
         }
 
-        //function SetDropDownList (dropDown, list)
-        //{
-        //    $.each(list, function (val, text) {
-        //        $(dropDown).append($('<option>', {
-        //            value: val,
-        //            text: text
-        //        }));
-        //    })
-        //}
+        function UpdateClicked()
+        {
+            var name = thisDepartmentName.value;
+            var managerId = managerIdDropDown.value;
+            var parentId = parentDepartmentIdDropDown.value;
+
+            $.ajax({
+                url: departmentUri + "/" + departmentId + "/" + name + "/" + managerId + "/" + parentId,
+                type: 'POST',
+                success: function (result) {
+                    if (result == true)
+                        window.location = "/Views/Department/Department.html";
+                    else
+                        alert("Update failed.");
+                }
+            });
+        }
     </script>
     <style>tr >:first-child {font-weight: bold;}</style>
 </head>
@@ -122,7 +131,7 @@
             <td id="departmentIdReadOnly"></td>
             <td>
                 <div>
-                    <input type="submit" value="Update" />
+                    <input type="button" value="Update" onclick="UpdateClicked()"/>
                 </div>
             </td>
         </tr>

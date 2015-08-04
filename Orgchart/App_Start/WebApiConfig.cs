@@ -28,6 +28,11 @@ namespace Nexient.Net.Orgchart.WebAPI
                 name: "With3Ids",
                 routeTemplate: "api/{controller}/{name}/{managerId}/{parentDepartmentId}"
             );
+
+            config.Routes.MapHttpRoute(
+                name: "With4Ids",
+                routeTemplate: "api/{controller}/{departmentId}/{departmentName}/{managerId}/{parentDepartmentId}"
+            );
         }
     }
 }

@@ -102,5 +102,35 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
                 return Json<bool>(numDeleted > 0);
             }
         }
+
+        [HttpPost]
+        public IHttpActionResult UpdateDepartment(int departmentId, string departmentName,
+            int managerId, int parentDepartmentId)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
+                _departmentRepository.SetSession(uow.Session);
+                var nameChangeOk = _departmentRepository.UpdateDepartmentsName(departmentId, departmentName);
+                var managerChangeOk = _departmentRepository.UpdateDepartmentsManager(departmentId, managerId);
+                var parentChangeOk = _departmentRepository.UpdateDepartmentsParentDepartment(departmentId, parentDepartmentId);
+
+                var allOk = nameChangeOk && managerChangeOk && parentChangeOk;
+
+                if (!allOk)
+                    return Json<bool>(false);
+
+                try
+                {
+                    uow.Commit();
+                }
+                catch (Exception)
+                {
+                    return Json<bool>(false);
+                }
+
+                return Json<bool>(true);
+            }
+        }
     }
 }

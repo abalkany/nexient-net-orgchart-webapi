@@ -50,5 +50,14 @@ namespace Nexient.Net.Orgchart.Data.Test
             _sut.DeleteDepartmentById(_departmentId);
             _repository.Verify(_ => _.DeleteDepartmentById(_departmentId));
         }
+
+        [Test]
+        public void UpdateDepartmentCallsThreeUpdateMethodsInRepository()
+        {
+            _sut.UpdateDepartment(_departmentId, _departmentName, _managerId, _parentDepartmentId);
+            _repository.Verify(_ => _.UpdateDepartmentsName(_departmentId, _departmentName));
+            _repository.Verify(_ => _.UpdateDepartmentsManager(_departmentId, _managerId));
+            _repository.Verify(_ => _.UpdateDepartmentsParentDepartment(_departmentId, _parentDepartmentId));
+        }
     }
 }
