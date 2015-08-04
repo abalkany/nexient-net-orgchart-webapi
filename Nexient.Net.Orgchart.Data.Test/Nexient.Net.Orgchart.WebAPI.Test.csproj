@@ -81,7 +81,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj">
+    <ProjectReference Include="..\..\nexient-net-orgchart-web\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj">
       <Project>{4e58b1ce-ebff-47ac-8cb3-242e1d327d73}</Project>
       <Name>Nexient.Net.Orgchart.Data</Name>
     </ProjectReference>

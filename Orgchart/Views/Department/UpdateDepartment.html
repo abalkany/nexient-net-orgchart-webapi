@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Update Department</title>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+
+    <script>
+        function UpdateDepartment() {
+            var newName = $("#name").val();
+            var newManagerId = $("#managerId").val();
+            var parentDepartmentId = $("#managerId").val();
+            var updateUrl = '/api/JobTitle/' + oldTitle + "/" + newTitle;
+
+            $.ajax({
+                url: updateUrl,
+                type: 'POST',
+                success: function (result) {
+                    window.location = "/Views/JobTitle/JobTitle.html";
+                }
+            });
+        }
+
+        window.onload = InitPage;
+        var employeeUri = "/api/Employee";
+        var departmentUri = "/api/Department";
+        var departmentId;
+        var departmentName;
+
+        function InitPage() {
+            ExtractIdAndName(window.location.href);
+
+            $("#thisDepartmentName").val(departmentName);
+            SetManagerList();
+            SetDepartmentList();
+            $("#departmentIdReadOnly").text(departmentId);
+            SetInitialSelections();
+        }
+
+        function ExtractIdAndName(pars)
+        {
+            var afterQuestionMark = pars.split("?")[1];
+            var idTerm = afterQuestionMark.toString().split("&")[0];
+            var nameTerm = afterQuestionMark.toString().split("&")[1];
+
+            departmentId = idTerm.split("=")[1];
+            departmentName = nameTerm.split("=")[1];
+        }
+
+        function SetManagerList() {
+            $.getJSON(employeeUri)
+                .done(function (employees) {
+                    $.each(employees, function (key, item) {
+                        if (item.IsManager)
+                            AddToDropDownList('managerIdDropDown', item.EmployeeId);
+                    })
+                });
+        }
+
+        function SetDepartmentList() {
+            $.getJSON(departmentUri)
+                .done(function (departments) {
+                    $.each(departments, function (key, item) {
+                        AddToDropDownList('parentDepartmentIdDropDown', item.DepartmentId);
+                    })
+                });
+        }
+
+        function SetInitialSelections() {
+            $.ajax({
+                url: departmentUri + "/" + Depar,
+                type: 'GET',
+                success: function (result) {
+                    window.location = "/Views/JobTitle/JobTitle.html";
+                }
+            });
+        }
+
+        function AddToDropDownList (dropdown, item)
+        {
+            var x = document.getElementById(dropdown);
+            var option = document.createElement("option");
+            option.text = item;
+            x.add(option, x[0]);
+        }
+
+        //function SetDropDownList (dropDown, list)
+        //{
+        //    $.each(list, function (val, text) {
+        //        $(dropDown).append($('<option>', {
+        //            value: val,
+        //            text: text
+        //        }));
+        //    })
+        //}
+    </script>
+    <style>tr >:first-child {font-weight: bold;}</style>
+</head>
+<body>
+
+    <h2>UpdateDepartment</h2><br/>
+    <h3>Change Department attributes:</h3><br/>
+
+    <table>
+        <tr>
+            <td align="right"><label class="control-label col-md-2">Name:</label></td>
+            <td><input type="text" id="thisDepartmentName"></td>
+        </tr>
+        <tr>
+            <td align="right"><label class="control-label col-md-2">Manager ID:</label></td>
+            <td>
+                <select id='managerIdDropDown'></select>
+             </td>
+        </tr>
+        <tr>
+            <td align="right"><label class="control-label col-md-2">ParentDepartment ID:</label></td>
+            <td>
+                <select id="parentDepartmentIdDropDown"></select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right"><label class="control-label col-md-2">Department ID:</label></td>
+            <td id="departmentIdReadOnly"></td>
+            <td>
+                <div>
+                    <input type="submit" value="Update" />
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p>
+        <a href="/Views/Department/Department.html">Back to Departments</a>
+        <br /><br />
+        <a href="/Views/Index.html">Back to main page</a>
+
+        <br /><br />
+        (c) 2015 - Nexient
+</body>
+</html>

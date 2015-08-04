@@ -23,7 +23,12 @@
                 url: uri + id,
                 type: 'DELETE',
                 success: function (result) {
-                    ShowDepartments();
+                    if (result)
+                        ShowDepartments();
+                    else
+                        alert("Delete failed.");
+
+                    $("body").css("cursor", "default");
                 }
             });
         }

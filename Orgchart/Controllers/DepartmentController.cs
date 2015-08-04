@@ -3,9 +3,10 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Nexient.Net.Orgchart.Data;
-using Nexient.Net.Orgchart.Data.Ninject;
 using Nexient.Net.Orgchart.Data.NHibernate;
+using Nexient.Net.Orgchart.Data.Ninject;
 using Ninject;
+using Nexient.Net.Orgchart.Data.Models;
 
 namespace Nexient.Net.Orgchart.WebAPI.Controllers
 {
@@ -35,10 +36,24 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
             }
         }
 
+        [HttpGet]
+        public IHttpActionResult FindDepartmentById(int id)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
+                var department = _departmentRepository.FindDepartmentById(id);
+                var ret = Json(department);
+
+                return ret;
+            }
+        }
+
         [HttpPost]
         public HttpResponseMessage CreateDepartment(string name, int managerId, int parentDepartmentId)
         {
             int departmentId;
+            Department department = null;
 
             using (var uow = new UnitOfWork())
             {
@@ -46,7 +61,7 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
                 uow.BeginTransaction();
                 departmentId = 0;
 
-                var department = _departmentRepository.CreateDepartment(name);
+                department = _departmentRepository.CreateDepartment(name);
 
                 if (department != null)
                 {
@@ -62,10 +77,30 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
             var response = new HttpResponseMessage();
             var uri = "http://Views/index.html";
             response.Headers.Location = new Uri(uri);
-            response.StatusCode = HttpStatusCode.OK;
+            response.StatusCode = (department == null) ? HttpStatusCode.BadRequest : HttpStatusCode.OK;
 
             return response;
         }
+    
+        [HttpDelete]
+        public IHttpActionResult DeleteDepartmentById(int id)
+        {
+            using (var uow = new UnitOfWork())
+            {
+                uow.BeginTransaction();
+                _departmentRepository.SetSession(uow.Session);
+                int numDeleted = _departmentRepository.DeleteDepartmentById(id);
 
+                try
+                {
+                    uow.Commit();
+                }
+                catch (Exception)
+                {
+                    numDeleted = 0;
+                }
+                return Json<bool>(numDeleted > 0);
+            }
+        }
     }
 }

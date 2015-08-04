@@ -96,6 +96,7 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Department\CreateDepartment.html" />
     <Content Include="Views\Department\Department.html" />
+    <Content Include="Views\Department\UpdateDepartment.html" />
     <Content Include="Views\JobTitle\CreateJobTitle.html" />
     <Content Include="Views\Index.html" />
     <Content Include="Views\JobTitle\JobTitle.html" />
@@ -106,6 +107,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\JobTitleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -126,7 +128,7 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj">
+    <ProjectReference Include="..\..\nexient-net-orgchart-web\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj">
       <Project>{4e58b1ce-ebff-47ac-8cb3-242e1d327d73}</Project>
       <Name>Nexient.Net.Orgchart.Data</Name>
     </ProjectReference>

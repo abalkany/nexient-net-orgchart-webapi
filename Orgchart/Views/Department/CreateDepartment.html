@@ -10,13 +10,18 @@
             var managerId = $("#managerId").val();
             var name = $("#name").val();
             var parentDepartmentId = $("#parentDepartmentId").val();
+            var HTTP_STATUS_OK = 200;
 
             $.ajax({
                 url: '/api/Department/' + name + "/" + managerId + "/" + parentDepartmentId,
                 type: 'POST',
                 success: function (result) {
-                    window.location = "/Views/Department/Department.html";
-                }
+                    if (result == null  ||  result.StatusCode != HTTP_STATUS_OK)
+                        alert("Create failed.");
+                    else
+                        window.location = "/Views/Department/Department.html";
+                },
+                error: alert("Create failed.")
             });
             $("body").css("cursor", "default");
         }

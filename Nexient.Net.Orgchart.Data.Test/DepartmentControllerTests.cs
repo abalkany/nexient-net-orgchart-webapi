@@ -36,5 +36,19 @@ namespace Nexient.Net.Orgchart.Data.Test
             _sut.GetAllDepartments();
             _repository.Verify(_ => _.GetAllDepartments());
         }
+
+        [Test]
+        public void FindDepartmentByIdCallsFindDepartmentByIdInRepository()
+        {
+            _sut.FindDepartmentById(_departmentId);
+            _repository.Verify(_ => _.FindDepartmentById(_departmentId));
+        }
+
+        [Test]
+        public void DeleteDepartmentByIdCallsDeleteDepartmentByIdInRepository()
+        {
+            _sut.DeleteDepartmentById(_departmentId);
+            _repository.Verify(_ => _.DeleteDepartmentById(_departmentId));
+        }
     }
 }
