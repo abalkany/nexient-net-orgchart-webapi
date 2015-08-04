@@ -15,13 +15,13 @@
             $.ajax({
                 url: '/api/Department/' + name + "/" + managerId + "/" + parentDepartmentId,
                 type: 'POST',
+                async: false,
                 success: function (result) {
-                    if (result == null  ||  result.StatusCode != HTTP_STATUS_OK)
+                    if (result == null)
                         alert("Create failed.");
                     else
                         window.location = "/Views/Department/Department.html";
-                },
-                error: alert("Create failed.")
+                }
             });
             $("body").css("cursor", "default");
         }

@@ -74,12 +74,7 @@ namespace Nexient.Net.Orgchart.WebAPI.Controllers
                 }
             }
 
-            var response = new HttpResponseMessage();
-            var uri = "http://Views/index.html";
-            response.Headers.Location = new Uri(uri);
-            response.StatusCode = (department == null) ? HttpStatusCode.BadRequest : HttpStatusCode.OK;
-
-            return response;
+            return new HttpResponseMessage((department == null) ? HttpStatusCode.BadRequest : HttpStatusCode.OK);
         }
     
         [HttpDelete]

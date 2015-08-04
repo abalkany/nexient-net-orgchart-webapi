@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.WebAPI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.Data", "..\nexient-net-orgchart-web\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data\Nexient.Net.Orgchart.Data.csproj", "{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nexient.Net.Orgchart.Data.IntegrationTests", "..\nexient-net-orgchart-web\nexient-net-orgchart-data\Nexient.Net.Orgchart.Data.IntegrationTests\Nexient.Net.Orgchart.Data.IntegrationTests.csproj", "{D0CD869C-04F7-4364-8C6A-F86895CD27B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E58B1CE-EBFF-47AC-8CB3-242E1D327D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CD869C-04F7-4364-8C6A-F86895CD27B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CD869C-04F7-4364-8C6A-F86895CD27B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CD869C-04F7-4364-8C6A-F86895CD27B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CD869C-04F7-4364-8C6A-F86895CD27B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
