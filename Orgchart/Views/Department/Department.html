@@ -28,8 +28,9 @@
             });
         }
 
-        function EditClicked(oldDescription) {
-            window.location = "/Views/Department/Update.html?id=" + oldDescription;
+        function EditClicked(id, name) {
+            window.location = "/Views/Department/UpdateDepartment.html?id=" + id +
+                "&name=" + name;
         }
 
         function CreateDepartmentClicked() {
@@ -46,7 +47,8 @@
                             "<td>" + item.DepartmentId + "</td>" +
                             "<td>" + item.ManagerId + "</td>" +
                             "<td>" + item.ParentDepartmentId + "</td>" +
-                            "<td><a onclick=EditClicked(" + "\"" + item.DepartmentId + "\"" + ")>Edit</a></td>" +
+                            "<td><a onclick=\"EditClicked(" + "'" + item.DepartmentId + "', " + "'" + item.Name +
+                                "')\">Edit</a></td>" +
                             "<td><a onclick=DeleteClicked(" + item.DepartmentId + ")>Delete</a></td></tr>");
                     })
                         .fail(function () {
@@ -64,7 +66,7 @@
         <tr><th>Department Name</th><th>Department ID</th><th>Manager ID</th><th>Parent Department ID</th></tr>
     </table>
     <br />
-    <input type="button" value="Create New Job Department" onclick="CreateDepartmentClicked()" />
+    <input type="button" value="Create New Department" onclick="CreateDepartmentClicked()" />
     <br /><br />
     <a href="/Views/Index.html">Back to main page</a>
 </body>
